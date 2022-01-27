@@ -1,0 +1,8 @@
+{{ dump(resul) }}
+<h1>Productos</h1>
+<ul>
+    {% for res in resul %}
+        <a href="http://localhost:8000/listar/producto/{{res.id}}">{{ res.nombre }}</a>
+        <br>
+    {% endfor %}
+</ul>

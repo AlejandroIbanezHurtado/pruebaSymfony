@@ -1,0 +1,13 @@
+{% extends "listados/general.html.twig" %}
+{% block titulo %}
+    {{parent()}}
+    {{tipo}}
+{% endblock %}
+{% block contenido %}
+    <ul>
+        {% for res in resul %}
+            <li><a href="http://localhost:8000/listar/producto/{{res.id}}">{{ res.nombre }}</a></li>
+            <br>
+        {% endfor %}
+    </ul>
+{% endblock %}

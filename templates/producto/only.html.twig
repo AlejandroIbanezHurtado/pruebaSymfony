@@ -1,0 +1,14 @@
+{% extends "listados/general.html.twig" %}
+{% block titulo %}
+    {{parent()}}
+    {{tipo}}
+{% endblock %}
+{% block contenido %}
+    <ul>
+    <li>Id: {{resul.id}}</li>
+    <li>Nombre: {{resul.nombre}}</li>
+    <li>Precio: {{resul.precio}}</li>
+    <li>Descripcion: {{resul.descripcion}}</li>
+    <li>categoria: {{resul.categoria.nombre}}</li>
+</ul>
+{% endblock %}
