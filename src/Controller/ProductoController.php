@@ -8,6 +8,10 @@ use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Producto;
 use App\Entity\Categoria;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\Request;
 
 class ProductoController extends AbstractController
 {
@@ -75,5 +79,18 @@ class ProductoController extends AbstractController
         return $this->render('producto/only.html.twig', [
             'resul' => $producto, 'tipo' => $producto->getNombre()
         ]);
+    }
+
+    public function new(Request $request): Response
+    {
+        $prod = new Producto();
+        $prod->setNombre('Write a blog post');
+        $prod->setDueDate(new \DateTime('tomorrow'));
+
+        $form = $this->createFormBuilder($prod)
+            ->add('task', TextType::class)
+            ->add('dueDate', DateType::class)
+            ->add('save', SubmitType::class, ['label' => 'Crear producto'])
+            ->getForm();
     }
 }

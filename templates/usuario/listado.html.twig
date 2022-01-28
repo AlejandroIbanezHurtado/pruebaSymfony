@@ -1,0 +1,14 @@
+{% extends "listados/general.html.twig" %}
+{% block titulo %}
+    {{parent()}}
+    {{tipo}}
+{% endblock %}
+{% block contenido %}
+    <ul>
+        {% for res in resul %}
+            <li>{{ res.nombre }}</li><a href="http://localhost:8000/usuario/editar/{{res.id}}">---Editar</a>
+            <br>
+        {% endfor %}
+    </ul>
+    <a href="http://localhost:8000/usuario/crear">Crear usuario</a>
+{% endblock %}
